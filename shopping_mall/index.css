@@ -43,7 +43,7 @@ h4 {
   width: 180px;
   height: 100px;
   box-shadow: black 8px 8px 20px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .product {
@@ -106,16 +106,16 @@ input {
 
 .buy {
   background-color: green;
-  border-radius: solid green 100px;
-  width: 400px;
+  border-radius: 100px;
+  width: 300px;
   height: 100px;
   font-size: 30px;
 }
 
 .back {
   background-color: red;
-  border-radius: solid green 100px;
-  width: 400px;
+  border-radius: 100px;
+  width: 300px;
   height: 100px;
   font-size: 30px;
   margin-right: 20px;
@@ -123,15 +123,15 @@ input {
 
 .confirm {
   background-color: blueviolet;
-  border-radius: solid green 100px;
-  width: 400px;
+  border-radius: 100px;
+  width: 300px;
   height: 100px;
   font-size: 30px;
   margin-left: 20px;
 }
 
 #count {
-  font-size: 100px;
+  font-size: 80px;
 }
 
 ul li {
