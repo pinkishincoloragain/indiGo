@@ -16,14 +16,20 @@ function movetopage(pname) {
   // document.getElementById("pname").innerHTML = pname;
 }
 
+function setCookie(name, value) {
+  document.cookie = name + "=" + value;
+}
+
 function check(id, pw) {
   var id = document.getElementById("username");
   var pass = document.getElementById("pass");
 
   if (id.value == "indigo" && pass.value == "password") {
     this.location.href = "mainpage.html";
+    document.cookie = "username=indigo";
   } else if (id.value == "indigo2" && pass.value == "password2") {
     this.location.href = "mainpage.html";
+    document.cookie = "username=indigo2";
   } else {
     this.location.href = "login.html";
   }
@@ -36,12 +42,22 @@ function buyproduct(pname) {
   x.innerText = num;
 }
 
+function delproduct(pname) {
+  var x = document.getElementById("count");
+  let num = x.innerText;
+  if (parseInt(num) > 0) {
+    num = parseInt(num) - 1;
+  }
+  x.innerText = num;
+}
+
 function confirm(pname) {
   var p_count = document.getElementById("count");
   buy_count = parseInt(p_count.innerText);
   // alert(buy_count);
   // alert(pname);
   location.href = "mainpage.html";
+  setCookie(pname, buy_count);
 }
 
 function shoppinglist() {
@@ -50,6 +66,11 @@ function shoppinglist() {
 
 function logout() {
   this.location.href = "login.html";
+  document.cookie = "username=";
+}
+
+function showbag() {
+  alert("fish");
 }
 
 function getImage(img_name) {
