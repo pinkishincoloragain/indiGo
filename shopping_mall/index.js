@@ -20,6 +20,22 @@ function setCookie(name, value) {
   document.cookie = name + "=" + value;
 }
 
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 function check(id, pw) {
   var id = document.getElementById("username");
   var pass = document.getElementById("pass");
@@ -105,4 +121,13 @@ function getImage(img_name) {
   } else if (image_name == "tomato") {
     return "media/tomato.jpg";
   }
+}
+
+function removeItem(pname) {
+  const item = document.getElementById(pname);
+  item.remove();
+}
+
+function addItem() {
+  getCookie();
 }
