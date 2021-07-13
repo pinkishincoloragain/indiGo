@@ -56,7 +56,7 @@ function buyproduct(pname) {
 
 function getItem(pname) {
   var bridge = new WebOSServiceBridge();
-  var url = "luna://com.webos.service.db/mergePut";
+  var url = "luna://com.webos.service.db/find";
   var result;
   bridge.onservicecallback = callback;
 
