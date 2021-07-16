@@ -22,8 +22,15 @@ const ItemListBase = kind({
 
 	render: ({children, onSelectItem, ...rest}) => (
 		<Panel {...rest}>
-			<Header title="Hello world!" />
+			<Header title="INDIGO SHOPPING MALL" />
 			<Scroller>
+				<div>
+					<h2>Shopping list</h2>
+					{/* print shopping list, below is an example */}
+					<p>Avocado</p>
+					<p>cherry</p>
+					<hr />
+				</div>
 				<Repeater childComponent={ItemInfo} indexProp="index" itemProps={{onSelect: onSelectItem}}>
                     {children}
                 </Repeater>

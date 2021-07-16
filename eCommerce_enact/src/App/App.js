@@ -32,12 +32,15 @@ const AppBase = kind({
 		index: PropTypes.number,
 		item_num: PropTypes.number,
 		onNavigate: PropTypes.func,
-		onSelectItem: PropTypes.func
+		onSelectItem: PropTypes.func,
+		open: PropTypes.bool,
+		handleOpen: PropTypes.func
 	},
 
 	defaultProps: {
 		index: 0,
-		item_num: 0
+		item_num: 0,
+		open: false
 	},
 
 	styles: {
@@ -58,21 +61,29 @@ const AppBase = kind({
 					index: 1
 				});
 			}
+		},
+		handleOpen: (ev, {open, handleOpen}) => {
+			if(handleOpen) {
+				handleOpen({
+					open: !open
+				});
+			}
 		}
 	},
 
-	render: ({index, item_num, onNavigate, onSelectItem, ...rest}) => (
+	render: ({index, item_num, onNavigate, onSelectItem, open, handleOpen, ...rest}) => (
 		<Panels {...rest} index={index} onBack={onNavigate}>
 			<ItemList onSelectItem={onSelectItem}>{item_list}</ItemList>
-			<ItemDetail name={item_list[item_num]}/>
+			<ItemDetail name={item_list[item_num]} open={open} handleOpen={handleOpen}/>
 		</Panels>
 	)
 });
 
 const App = Changeable({prop: 'index', change: 'onNavigate'},
 	Changeable({prop: 'item_num', change: 'onSelectItem'},
+	Changeable({prop: 'open', change: 'handleOpen'},
 		ThemeDecorator(AppBase)
-	)
+	))
 );
 
 export default App;
