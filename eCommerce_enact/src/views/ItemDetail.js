@@ -4,27 +4,31 @@ import {Header, Panel} from '@enact/sandstone/Panels';
 import PropTypes from 'prop-types';
 import Button from '@enact/sandstone/Button';
 import Scroller from '@enact/sandstone/Scroller';
+import LS2Request from '@enact/webos/LS2Request';
 
+import SubmitBtn from '../components/SubmitBtn';
 import css from './ItemDetail.module.less';
 
 const ItemDetailBase = kind({
 	name: 'ItemDetail',
 
 	propTypes: {
-        name: PropTypes.string // building name
+        name: PropTypes.string, // building name
+        putKind: PropTypes.func,
+        put: PropTypes.func
 	},
 
     styles: {
         css,
         className: 'item_detail'
     },
-    
-	render: ({name, ...rest}) => (
+
+	render: ({name, putKind, put, ...rest}) => (
 		<Panel {...rest}>
 			<Header title={name} />
             <Scroller>
-                <img classname="Item" src={`../../media/${name}.jpg`} alt="ItemInfo" />
-                <Button className="complete">complete</Button>
+                <img className="Item" src={`../../media/${name}.jpg`} alt="ItemInfo" />
+                <SubmitBtn name={name}></SubmitBtn>
                 <Button className="map">Map</Button>
             </Scroller>
 		</Panel>
