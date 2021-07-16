@@ -4,15 +4,21 @@ import Scroller from '@enact/sandstone/Scroller';
 import Repeater from '@enact/ui/Repeater';
 import PropTypes from 'prop-types';
 
-import ItemInfo from '../components/ItemInfo'
+import ItemInfo from '../components/ItemInfo';
+import css from './ItemList.module.less';
 
-const MainPanel = kind({
-	name: 'MainPanel',
+const ItemListBase = kind({
+	name: 'ItemList',
 
 	propTypes: {
         children: PropTypes.array,
         onSelectItem: PropTypes.func
     },
+
+	styles: {
+		css,
+		className: 'item_list'
+	},
 
 	render: ({children, onSelectItem, ...rest}) => (
 		<Panel {...rest}>
@@ -26,4 +32,8 @@ const MainPanel = kind({
 	)
 });
 
-export default MainPanel;
+export default ItemListBase;
+export {
+    ItemListBase as Item,
+    ItemListBase
+};

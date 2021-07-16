@@ -4,7 +4,7 @@ import Panels from '@enact/sandstone/Panels';
 import PropTypes from 'prop-types';
 import Changeable from '@enact/ui/Changeable';
 
-import MainPanel from '../views/MainPanel';
+import ItemList from '../views/ItemList';
 import ItemDetail from '../views/ItemDetail';
 import css from './App.module.less';
 
@@ -63,7 +63,7 @@ const AppBase = kind({
 
 	render: ({index, item_num, onNavigate, onSelectItem, ...rest}) => (
 		<Panels {...rest} index={index} onBack={onNavigate}>
-			<MainPanel onSelectItem={onSelectItem}>{item_list}</MainPanel>
+			<ItemList onSelectItem={onSelectItem}>{item_list}</ItemList>
 			<ItemDetail name={item_list[item_num]}/>
 		</Panels>
 	)
