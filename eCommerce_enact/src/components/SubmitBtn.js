@@ -18,10 +18,9 @@ const SubmitBtn = (name) => {
         putKind();
         var request = new LS2Request().send({
             service: "luna://com.webos.service.db",
-            method: 'mergePut',
+            method: 'put',
             parameters: {
-                "query":{"from":"com.sample.app:1"},
-                "props":{"_kind":"com.sample.app:1", [name.name]:quantity},
+                "objects":[{"item":name.name,"quantity":quantity,"_kind":"com.sample.app:1"}]
             }
         });
     }
