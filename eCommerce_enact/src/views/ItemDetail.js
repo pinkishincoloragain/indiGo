@@ -23,7 +23,7 @@ const ItemDetailBase = kind({
 		<Panel {...rest}>
 			<Header title={name} />
             <Scroller>
-                <img className="stream" src="https://cdn.pixabay.com/photo/2020/11/30/18/14/colorful-5791787_960_720.png"/>
+                <img classname="Item" src={`../../media/${name}.jpg`} alt="ItemInfo" />
                 <Button className="complete">complete</Button>
                 <Button className="map">Map</Button>
             </Scroller>
